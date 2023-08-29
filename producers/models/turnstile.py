@@ -26,11 +26,11 @@ class Turnstile(Producer):
         )
 
         super().__init__(
-            f"com.udacity.turnstile.{station_name}",
+            f"transit.station.{station_name}.turnstile",
             key_schema=Turnstile.key_schema,
             value_schema=Turnstile.value_schema,
             num_partitions=3,
-            num_replicas=1, # There is only one Kafka Broker being defined for this project.
+            num_replicas=3,
         )
         self.station = station
         self.turnstile_hardware = TurnstileHardware(station)

@@ -28,11 +28,11 @@ class Station(Producer):
         )
         
         super().__init__(
-            topic_name=f"com.udacity.station.{station_name}",
+            topic_name=f"transit.station.{station_name}.arrival",
             key_schema=Station.key_schema,
             value_schema=Station.value_schema,
             num_partitions=3,
-            num_replicas=1, # There is only one Kafka Broker being defined for this project.
+            num_replicas=3,
         )
 
         self.station_id = int(station_id)
