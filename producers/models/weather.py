@@ -87,7 +87,7 @@ class Weather(Producer):
 
         try:
             response.raise_for_status()
-        except Exception:
+        except requests.exceptions.RequestException:
             logger.error(
                 f"Failed to produce data to {self.topic_name}. Error: {json.dumps(response.json())}"
             )
