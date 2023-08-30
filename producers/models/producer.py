@@ -32,8 +32,8 @@ class Producer:
         self.num_replicas = num_replicas
 
         self.broker_properties = {
-            "bootstrap.servers": "PLAINTEXT://localhost:9092",
-            "schema.registry.url": "http://localhost:8081",
+            "bootstrap.servers": "PLAINTEXT://host.docker.internal:9092",
+            "schema.registry.url": "http://host.docker.internal:8081",
         }
 
         # If the topic does not already exist, try to create it
