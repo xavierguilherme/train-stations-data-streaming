@@ -18,7 +18,7 @@ class Turnstile(Producer):
     def __init__(self, station):
         """Create the Turnstile"""
         super().__init__(
-            f"transit.stations.turnstile",
+            topic_name="org.chicago.cta.stations.turnstile",
             key_schema=Turnstile.key_schema,
             value_schema=Turnstile.value_schema,
             num_partitions=3,

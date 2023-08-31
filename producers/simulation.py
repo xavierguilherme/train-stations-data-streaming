@@ -65,6 +65,7 @@ class TimeSimulation:
 
         logger.info("beginning cta train simulation")
         weather = Weather(curr_time.month)
+        
         try:
             while True:
                 logger.debug("simulation running: %s", curr_time.isoformat())

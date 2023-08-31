@@ -9,6 +9,8 @@ from confluent_kafka.avro import AvroProducer
 
 logger = logging.getLogger(__name__)
 
+BROKER_URL = "PLAINTEXT://localhost:9092,PLAINTEXT://localhost:9093,PLAINTEXT://localhost:9094"
+SCHEMA_REGISTRY_URL = "http://localhost:8081"
 
 class Producer:
     """Defines and provides common functionality amongst Producers"""
@@ -32,8 +34,8 @@ class Producer:
         self.num_replicas = num_replicas
 
         self.broker_properties = {
-            "bootstrap.servers": "PLAINTEXT://host.docker.internal:9092",
-            "schema.registry.url": "http://host.docker.internal:8081",
+            "bootstrap.servers" : BROKER_URL,
+            "schema.registry.url": SCHEMA_REGISTRY_URL,
         }
 
         # If the topic does not already exist, try to create it
