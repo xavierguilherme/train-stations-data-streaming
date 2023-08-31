@@ -16,14 +16,6 @@ class Weather:
 
     def process_message(self, message):
         """Handles incoming weather data"""
-        value = json.loads(message.value())
-        
-        temperature = value.get("temperature")
-        if not isinstance(temperature, float):
-            logger.error(f"Unable to process 'temperature' value with type: {type(temperature)}")
-        self.temperature = temperature
-        
-        status = value.get("status")
-        if not isinstance(status, float):
-            logger.error(f"Unable to process 'status' value with type: {type(status)}")
-        self.status = status
+        value = message.value()
+        self.temperature = value.get("temperature")
+        self.status = value.get("status")

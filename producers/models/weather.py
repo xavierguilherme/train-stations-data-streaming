@@ -64,7 +64,7 @@ class Weather(Producer):
 
     def run(self, month):
         self._set_weather(month)
-
+        
         response = requests.post(
            f"{Weather.rest_proxy_url}/topics/{self.topic_name}",
            headers={"Content-Type": "application/vnd.kafka.avro.v2+json"},
