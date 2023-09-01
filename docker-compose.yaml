@@ -132,8 +132,8 @@ services:
     ports:
     - "5432:5432"
     environment:
-      POSTGRES_USER: "cta_admin"
-      POSTGRES_PASSWORD: "chicago"
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PWD}
       POSTGRES_DB: "cta"
     volumes:
     - ./producers/data/cta_stations.csv:/tmp/cta_stations.csv
